@@ -1,1 +1,15 @@
 id	runde	achse	kandidat	quelle	stufe	luecke	nachfrage	machbarkeit	score	status	beleg_notiz
+K01	1	3	Abfall der Regelbefolgung in der Sitzung kausal trennen (Kontextlänge, Tool-Calls, Regeltyp, Wiedereinblenden)	Scan A3	kurzpruefung	4	3	5	60	weiter	Nächste Arbeit McMillan arxiv.org/pdf/2605.10039 nennt Mechanismus offen; Kurzprüfung: nichts Direktes
+K02	1	3	Skill-Fehler zerlegen: nicht geladen gegen geladen aber ignoriert	Scan A3	kurzpruefung	3	3	4	36	weiter	Teilweise: Skill-Induced Failures arxiv.org/pdf/2608.11888; 'Lost in Implicit Routing' nur Suchtreffer
+K03	1	2x3	Probe 'Regel noch zugänglich' über Agenten-Trajektorie, Vorhersage der Verletzung	Scan A2/A3	kurzpruefung	3	3	3	27	offen	Teilweise: Negativbefunde alphaxiv.org/abs/2606.30449; When Attention Closes arxiv.org/abs/2605.12922
+K04	1	2	Attribution Graph auf Regel gegen Nutzeranweisung/Tool-Wahl	Scan A2	kurzpruefung	4	3	2	24	offen	Nichts Direktes; nächste Arbeit arxiv.org/pdf/2605.06890 (SAE/Probes, kein Circuit Tracing)
+K05	1	2	Probes für Tool-Entscheidung über mehrere Schritte	Scan A2	kurzpruefung	1	2	3	6	verworfen	Weitgehend beantwortet: Reading the Plan neurips.cc/virtual/2026/168165
+K06	1	1	API gegen GUI gegen Hybrid, pass^k und Kosten	Scan A1	kurzpruefung	2	3	2	12	ungeklärt	Teilweise: Terminal Agents Suffice arxiv.org/abs/2604.00073; MCPWorld; OSWorld-MCP
+K07	1	1x2	Warum Agenten bereitstehende Tools nicht nutzen	Scan A1	kurzpruefung	4	2	2	16	ungeklärt	Nichts Direktes; Nachfrage nur aus OSWorld-MCP abgeleitet
+K08	1	5x3	Schwache Monitore für nicht böswillige Regelverstöße in Coding-Sitzungen	Scan A5	kurzpruefung	4	4	4	64	weiter	Nichts Direktes; nächste Arbeit ContextCov arxiv.org/html/2603.00822v2; Nachfrage: Apollo-Agenda, UK AISI Alignment Project
+K09	1	4x3	Regelverstöße in öffentlichen Trajektorien annotieren und vorhersagen	Scan A4	kurzpruefung	2	2	4	16	ungeklärt	Teilweise: 20.574 Sitzungen arxiv.org/pdf/2605.29442 (deskriptiv)
+K10	1	6x3	Regeltreue kleiner offener Modelle, Destillation regelkonformer Trajektorien	Scan A6	kurzpruefung	3	2	2	12	ungeklärt	Teilweise: Open-SWE-Traces alphaxiv.org/abs/2606.16038 misst nur Resolve-Rate
+K11	1	6	Selbst erzeugte gegen kuratierte Skills bei kleinen Modellen	Scan A6	kurzpruefung	1	2	4	8	verworfen	Kernbefund vorhanden: SkillsBench arxiv.org/abs/2602.12670, SoK arxiv.org/abs/2602.20867
+K12	1	4x5	Fehlervorhersage im Lauf aus Aktivierungen	Scan A4	kurzpruefung	2	3	3	18	ungeklärt	Teilweise: Doomed from the Start alphaxiv.org/abs/2607.06503 (nicht Coding)
+K13	1	5x3	Kündigt sichtbares Reasoning den Regelverstoß an (verbalisiert gegen still)	Scan A5	kurzpruefung	4	4	4	64	weiter	Teilweise: arxiv.org/abs/2512.18311, alphaxiv.org/abs/2608.04735; nichts zu Regelverstößen in Coding-Agenten
+K14	1	1	Hochbudget-Leistung aus billigen Läufen schätzen	Scan A1	kurzpruefung	3	4	2	24	offen	Nichts Direktes; 'Decomposing Smooth Agentic Inference Scaling' (ICML 2026) nur Suchtreffer; Nachfrage: UK AISI Blog
