@@ -5,15 +5,25 @@ Fortsetzen: Auftrag lesen, dann diese Datei, dann die letzten Zeilen von `log.ts
 
 ## Stand (wird überschrieben)
 - Start der Recherche: 2026-11-13 18:50 UTC. Budget 2–4 h, also weiche Frist 22:50 UTC.
-- Runde: 1. Scans der sechs Achsen fertig, 14 Ideen im Backlog, Kurzprüfung (Haiku) läuft.
-- Top-Kandidaten: noch keine.
-- Nächster Schritt: Kurzprüfung auswerten, vorläufige Scores, Tiefenprüfung (Opus) der Besten.
+- Runde: 2 läuft. Runde 1 abgeschlossen (14 Ideen, 4 Tiefenprüfungen).
+- Top-Kandidaten nach Runde 1: K08b 48, K13b 48, K01b 36 (alle eng geschnitten; breite Fassungen 24-32).
+- Nächster Schritt: Tiefenprüfung K13b+K15+K16 (Opus), Abruf ungeprüfter Treffer zu K08b/K14/K18 (Sonnet), danach K04.
 
 ## Lehren (nur anhängen)
 - L1 (K01, K02): Reines Verhaltens-Messen von Regelbefolgung bei Coding-Agenten ist 2026 dicht besetzt, etwa eine neue Arbeit pro Monat (Gamage, McMillan, SKILL-USE, SkillClash, Sun et al.). Die Kurzprüfung mit einer Suche hat das nicht gesehen: "nichts Direktes gefunden" in der Kurzprüfung ist kein Beleg für eine Lücke. Ähnliche Ideen (reine Messung auf Achse 3) niedriger einstufen.
 - L2: Abruf-Limit 100 WebFetch pro Stunde über alle Agenten. Tiefenprüfungen nacheinander oder knapp halten.
 
+- L3 (K08, K13): Labs betreiben Monitore für "overeager"-Verhalten schon im Produkt. Offen sind nur enge Schnitte mit prüfbarer Ground Truth. Nachfrage für "benigne Regelverstöße" ist nirgends wörtlich belegt, nur abgeleitet: Nachfrage dort höchstens 4, eher 3.
+- L4 (K13): Claude- und OpenAI-APIs liefern kein rohes Reasoning. Alles, was CoT braucht, geht sauber nur mit offenen Reasoning-Modellen. Tims eigene Logs taugen dafür nicht.
+- L5 (K13): "Vergessen" gegen "bewusst übergangen" ist die Unterscheidung, an der Verhaltens-Messungen scheitern. Genau dort helfen Interna (Probes). Das hebt Ideen auf der Brücke Achse 2 x 3 x 5.
+
 ## Ideen-Backlog
+Runde 2:
+- K15 | 2x3x5 | Vergessen oder übergangen? Bei Regelverstößen offener Reasoning-Agenten 2x2 aus roher CoT (Regel erwähnt ja/nein) und Probe (Regel intern dekodierbar ja/nein) → trennt stilles Übergehen von Vergessen, nutzt Tims Interp-Werkzeug | L | hoch (wegen L5) | eigene Idee aus K03+K13b
+- K16 | 5 | Was verliert ein Monitor durch zusammengefasstes statt rohes Reasoning? Offene Modelle mit roher CoT, Summarizer dazwischen, Monitor-Recall vorher/nachher | M | hoch (SHUSHCAST-Beobachtung bei Claude) | Tiefenprüfung K08
+- K18 | 4x3 | Dunkelziffer: Regelverstöße in echten Sitzungen, die kein Nutzer-Pushback sichtbar macht (Tang et al. schließen sie aus) | M | mittel | Tiefenprüfung K08
+- K04, K14, K08b: aus Runde 1 offen, Tiefenprüfung bzw. Abruf ungeprüfter Treffer in Runde 2.
+Runde 1:
 Kritikzeilen Runde 1 (ID | Achse | Idee → Mechanismus | Größe | Rating | Quelle):
 - K01 | 3 | Warum Regelbefolgung in Coding-Agenten in der Sitzung abfällt: Kontextlänge gegen Zahl der Tool-Calls gegen Regeltyp trennen, Wiedereinblenden als kausaler Test → McMillan nennt Mechanismus offen, Tim hat Daten | M | hoch | Scan A3 (2605.10039)
 - K02 | 3 | Skill-Fehler zerlegen: nicht geladen gegen geladen aber ignoriert → OCTOBENCH nennt Skills als Engpass ohne Erklärung | M | hoch | Scan A3 (2601.10343)
