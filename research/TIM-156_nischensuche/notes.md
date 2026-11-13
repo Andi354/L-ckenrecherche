@@ -5,9 +5,9 @@ Fortsetzen: Auftrag lesen, dann diese Datei, dann die letzten Zeilen von `log.ts
 
 ## Stand (wird überschrieben)
 - Start der Recherche: 2026-11-13 18:50 UTC. Budget 2–4 h, also weiche Frist 22:50 UTC.
-- Runde: 2 läuft. Runde 1 abgeschlossen (14 Ideen, 4 Tiefenprüfungen).
-- Top-Kandidaten nach Runde 1: K08b 48, K13b 48, K01b 36 (alle eng geschnitten; breite Fassungen 24-32).
-- Nächster Schritt: Tiefenprüfung K13b+K15+K16 (Opus), Abruf ungeprüfter Treffer zu K08b/K14/K18 (Sonnet), danach K04.
+- Runde: 3 geplant ab ca. 19:55 UTC (Abruf-Limit abwarten). Runde 2 abgeschlossen, aber mit Vorbehalt (L6).
+- Top-Kandidaten nach Runde 2 (vorläufig): K13b 36, K01b 36, K18 36, K08b 32, K16 30. Alles unter der vermuteten Rauschgrenze beieinander.
+- Nächster Schritt: ein Opus-Agent liest die Pflichtlektüre und prüft K19; danach Zweitbewerter (Top 5 blind), dann Prüfer, dann Bericht.
 
 ## Lehren (nur anhängen)
 - L1 (K01, K02): Reines Verhaltens-Messen von Regelbefolgung bei Coding-Agenten ist 2026 dicht besetzt, etwa eine neue Arbeit pro Monat (Gamage, McMillan, SKILL-USE, SkillClash, Sun et al.). Die Kurzprüfung mit einer Suche hat das nicht gesehen: "nichts Direktes gefunden" in der Kurzprüfung ist kein Beleg für eine Lücke. Ähnliche Ideen (reine Messung auf Achse 3) niedriger einstufen.
@@ -16,8 +16,14 @@ Fortsetzen: Auftrag lesen, dann diese Datei, dann die letzten Zeilen von `log.ts
 - L3 (K08, K13): Labs betreiben Monitore für "overeager"-Verhalten schon im Produkt. Offen sind nur enge Schnitte mit prüfbarer Ground Truth. Nachfrage für "benigne Regelverstöße" ist nirgends wörtlich belegt, nur abgeleitet: Nachfrage dort höchstens 4, eher 3.
 - L4 (K13): Claude- und OpenAI-APIs liefern kein rohes Reasoning. Alles, was CoT braucht, geht sauber nur mit offenen Reasoning-Modellen. Tims eigene Logs taugen dafür nicht.
 - L5 (K13): "Vergessen" gegen "bewusst übergangen" ist die Unterscheidung, an der Verhaltens-Messungen scheitern. Genau dort helfen Interna (Probes). Das hebt Ideen auf der Brücke Achse 2 x 3 x 5.
+- L6 (Runde 2): Das Abruf-Limit (100 pro Stunde, nur WebFetch, kein direkter Netzzugang) war nach den ersten Tiefenprüfungen erschöpft. Runde 2 beruht bei K13b/K15/K16 großteils auf Titeln. Diese Scores sind vorläufig, bis die Pflichtlektüre gelesen ist: 2608.02089, 2607.07405, 2608.12323, 2608.09867, 2608.12321, 2604.28031, ICML "Decomposing Smooth Agentic Inference Scaling", claude-md-doctor.
+- L7 (K15): Probes für verbotene Aktionen in offenen Tool-Agenten gibt es seit Oktober 2026 (The Agent Knew). Zwei Arbeiten widersprechen sich dabei: Fomin et al. (Probes lesen die Situation, nicht die Aktion) gegen Fayyazi et al. (AUROC 0,94). Ein Widerspruch zwischen zwei frischen Arbeiten ist eine konkrete Lücke.
 
 ## Ideen-Backlog
+Runde 3:
+- K19 | 2x5 | Lesen Probes für verbotene Aktionen die Situation oder die Absicht? Widerspruch Fomin et al. gegen "The Agent Knew" auflösen: Replikation auf gpt-oss-20b mit Kontrollen (gleiche Situation, andere Aktion) → nutzt Interp-Werkzeug, eine GPU | M | hoch (wegen L7) | Tiefenprüfung K15
+- K22 | 3 | Wirkt eine aufgeschriebene Regel? Natürliches Experiment in Tims eigenen Logs: Wiederholungsrate eines Fehlers vor und nach dem Eintrag in CLAUDE.md/Skill | M | mittel | eigene Daten
+- Pflichtlektüre aus L6 (entscheidet über K13b, K16, K15, K14, K08b).
 Runde 2:
 - K15 | 2x3x5 | Vergessen oder übergangen? Bei Regelverstößen offener Reasoning-Agenten 2x2 aus roher CoT (Regel erwähnt ja/nein) und Probe (Regel intern dekodierbar ja/nein) → trennt stilles Übergehen von Vergessen, nutzt Tims Interp-Werkzeug | L | hoch (wegen L5) | eigene Idee aus K03+K13b
 - K16 | 5 | Was verliert ein Monitor durch zusammengefasstes statt rohes Reasoning? Offene Modelle mit roher CoT, Summarizer dazwischen, Monitor-Recall vorher/nachher | M | hoch (SHUSHCAST-Beobachtung bei Claude) | Tiefenprüfung K08
