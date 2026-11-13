@@ -5,9 +5,9 @@ Fortsetzen: Auftrag lesen, dann diese Datei, dann die letzten Zeilen von `log.ts
 
 ## Stand (wird überschrieben)
 - Start der Recherche: 2026-11-13 18:50 UTC. Budget 2–4 h, also weiche Frist 22:50 UTC.
-- Runde: 3 geplant ab ca. 19:55 UTC (Abruf-Limit abwarten). Runde 2 abgeschlossen, aber mit Vorbehalt (L6).
-- Top-Kandidaten nach Runde 2 (vorläufig): K13b 36, K01b 36, K18 36, K08b 32, K16 30. Alles unter der vermuteten Rauschgrenze beieinander.
-- Nächster Schritt: ein Opus-Agent liest die Pflichtlektüre und prüft K19; danach Zweitbewerter (Top 5 blind), dann Prüfer, dann Bericht.
+- Runde: 4 läuft (Tiefenprüfung K23+K24, Kurzprüfung K22). Runde 3 abgeschlossen.
+- Top-Kandidaten nach Runde 3: K19b 60, K13b 45, K01b 36 (dann K08b 32, K16 30). Top 3 hat sich gegenüber Runde 2 geändert, also noch nicht stabil.
+- Nächster Schritt: Runde 4 auswerten; wenn Top 3 stabil: Zweitbewerter (Top 5 blind), Prüfer, Bericht.
 
 ## Lehren (nur anhängen)
 - L1 (K01, K02): Reines Verhaltens-Messen von Regelbefolgung bei Coding-Agenten ist 2026 dicht besetzt, etwa eine neue Arbeit pro Monat (Gamage, McMillan, SKILL-USE, SkillClash, Sun et al.). Die Kurzprüfung mit einer Suche hat das nicht gesehen: "nichts Direktes gefunden" in der Kurzprüfung ist kein Beleg für eine Lücke. Ähnliche Ideen (reine Messung auf Achse 3) niedriger einstufen.
@@ -18,8 +18,16 @@ Fortsetzen: Auftrag lesen, dann diese Datei, dann die letzten Zeilen von `log.ts
 - L5 (K13): "Vergessen" gegen "bewusst übergangen" ist die Unterscheidung, an der Verhaltens-Messungen scheitern. Genau dort helfen Interna (Probes). Das hebt Ideen auf der Brücke Achse 2 x 3 x 5.
 - L6 (Runde 2): Das Abruf-Limit (100 pro Stunde, nur WebFetch, kein direkter Netzzugang) war nach den ersten Tiefenprüfungen erschöpft. Runde 2 beruht bei K13b/K15/K16 großteils auf Titeln. Diese Scores sind vorläufig, bis die Pflichtlektüre gelesen ist: 2608.02089, 2607.07405, 2608.12323, 2608.09867, 2608.12321, 2604.28031, ICML "Decomposing Smooth Agentic Inference Scaling", claude-md-doctor.
 - L7 (K15): Probes für verbotene Aktionen in offenen Tool-Agenten gibt es seit Oktober 2026 (The Agent Knew). Zwei Arbeiten widersprechen sich dabei: Fomin et al. (Probes lesen die Situation, nicht die Aktion) gegen Fayyazi et al. (AUROC 0,94). Ein Widerspruch zwischen zwei frischen Arbeiten ist eine konkrete Lücke.
+- L8 (Runde 3): CAPE-Bench (206.697 Episoden, 4 offene Modelle, Reasoning je Zug, Verstoß-Labels, CC-BY-4.0, Code offen) ist ein öffentlicher Hebel: Projekte darauf brauchen keine eigene Datenerzeugung. Das hebt die Machbarkeit aller Kandidaten, die darauf aufsetzen, auf 5.
+- L9 (Runde 3): "Vergessen" ist als Ursache von Regelverstößen widerlegt (2604.28031, 2608.12321). Der Engpass liegt im Routing von Wissen zu Handlung. Mechanistische Fragen sollten dort ansetzen.
+- L10 (Runde 3): Probe-Monitoring bei Agenten bewegt sich im Wochentakt (drei Arbeiten in vier Wochen). Was dort liegt, hat hohes Überhol-Risiko, braucht aber wenig Aufwand.
+- Korrektur: K18 steht im Log mit Nachfrage 2 (Score 24). Im Thread-Update nach Runde 2 stand fälschlich 36.
 
 ## Ideen-Backlog
+Runde 4:
+- K23 | 2x3 | Wo scheitert das Routing von Regelwissen zur Handlung? Activation Patching / Attribution auf CAPE-Bench-Entscheidungszügen (Gemma oder gpt-oss): überträgt 2608.12321 von pragmatischem Schließen auf Tool-Agenten | L | hoch (wegen L9, L8) | Runde 3; ersetzt K04
+- K24 | 5x2 | Was bleibt dem Monitor, wenn Reasoning zusammengefasst oder verborgen ist? Auf CAPE-Bench: Text-Monitor auf roher CoT, auf Zusammenfassung, nur auf Aktionen, gegen Probe. Gewinnt die Probe ihren Vorteil zurück, sobald die CoT wie in Produktions-APIs fehlt? | M | hoch (wegen L8, L4) | Zusammenführung K13b+K16+K19b
+- K22 | 3 | Wirkt eine aufgeschriebene Regel? Natürliches Experiment in Tims Logs | M | mittel | noch ohne Kurzprüfung
 Runde 3:
 - K19 | 2x5 | Lesen Probes für verbotene Aktionen die Situation oder die Absicht? Widerspruch Fomin et al. gegen "The Agent Knew" auflösen: Replikation auf gpt-oss-20b mit Kontrollen (gleiche Situation, andere Aktion) → nutzt Interp-Werkzeug, eine GPU | M | hoch (wegen L7) | Tiefenprüfung K15
 - K22 | 3 | Wirkt eine aufgeschriebene Regel? Natürliches Experiment in Tims eigenen Logs: Wiederholungsrate eines Fehlers vor und nach dem Eintrag in CLAUDE.md/Skill | M | mittel | eigene Daten
