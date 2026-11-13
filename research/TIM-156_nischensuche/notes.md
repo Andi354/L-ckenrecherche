@@ -10,6 +10,8 @@ Fortsetzen: Auftrag lesen, dann diese Datei, dann die letzten Zeilen von `log.ts
 - Nächster Schritt: Kurzprüfung auswerten, vorläufige Scores, Tiefenprüfung (Opus) der Besten.
 
 ## Lehren (nur anhängen)
+- L1 (K01, K02): Reines Verhaltens-Messen von Regelbefolgung bei Coding-Agenten ist 2026 dicht besetzt, etwa eine neue Arbeit pro Monat (Gamage, McMillan, SKILL-USE, SkillClash, Sun et al.). Die Kurzprüfung mit einer Suche hat das nicht gesehen: "nichts Direktes gefunden" in der Kurzprüfung ist kein Beleg für eine Lücke. Ähnliche Ideen (reine Messung auf Achse 3) niedriger einstufen.
+- L2: Abruf-Limit 100 WebFetch pro Stunde über alle Agenten. Tiefenprüfungen nacheinander oder knapp halten.
 
 ## Ideen-Backlog
 Kritikzeilen Runde 1 (ID | Achse | Idee → Mechanismus | Größe | Rating | Quelle):
