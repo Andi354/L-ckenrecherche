@@ -5,9 +5,9 @@ Fortsetzen: Auftrag lesen, dann diese Datei, dann die letzten Zeilen von `log.ts
 
 ## Stand (wird überschrieben)
 - Start der Recherche: 2026-11-13 18:50 UTC. Budget 2–4 h, also weiche Frist 22:50 UTC.
-- Runde: 4 läuft (Tiefenprüfung K23+K24, Kurzprüfung K22). Runde 3 abgeschlossen.
-- Top-Kandidaten nach Runde 3: K19b 60, K13b 45, K01b 36 (dann K08b 32, K16 30). Top 3 hat sich gegenüber Runde 2 geändert, also noch nicht stabil.
-- Nächster Schritt: Runde 4 auswerten; wenn Top 3 stabil: Zweitbewerter (Top 5 blind), Prüfer, Bericht.
+- Runde: 5 läuft (Kurzprüfung K30, K32; parallel Zweitbewerter). Runde 4 abgeschlossen.
+- Top-Kandidaten nach Runde 4: K19b 60, K23b 48, K24 45 (K13b 45 geht in K24 auf), dann K01b 36, K08b 32.
+- Nächster Schritt: Runde 5 auswerten (Stabilität Top 3), Rauschgrenze aus Zweitbewertung, Prüfer, Bericht.
 
 ## Lehren (nur anhängen)
 - L1 (K01, K02): Reines Verhaltens-Messen von Regelbefolgung bei Coding-Agenten ist 2026 dicht besetzt, etwa eine neue Arbeit pro Monat (Gamage, McMillan, SKILL-USE, SkillClash, Sun et al.). Die Kurzprüfung mit einer Suche hat das nicht gesehen: "nichts Direktes gefunden" in der Kurzprüfung ist kein Beleg für eine Lücke. Ähnliche Ideen (reine Messung auf Achse 3) niedriger einstufen.
@@ -22,8 +22,13 @@ Fortsetzen: Auftrag lesen, dann diese Datei, dann die letzten Zeilen von `log.ts
 - L9 (Runde 3): "Vergessen" ist als Ursache von Regelverstößen widerlegt (2604.28031, 2608.12321). Der Engpass liegt im Routing von Wissen zu Handlung. Mechanistische Fragen sollten dort ansetzen.
 - L10 (Runde 3): Probe-Monitoring bei Agenten bewegt sich im Wochentakt (drei Arbeiten in vier Wochen). Was dort liegt, hat hohes Überhol-Risiko, braucht aber wenig Aufwand.
 - Korrektur: K18 steht im Log mit Nachfrage 2 (Score 24). Im Thread-Update nach Runde 2 stand fälschlich 36.
+- L11 (Runde 4): Bei Reasoning-Modellen ist die Entscheidung am Aktionstoken meist schon im CoT-Text gefallen. Mechanistische Analyse muss am Forking-Token in der CoT ansetzen (Resampling ab gleichem Präfix). Dieselbe Resampling-Infrastruktur dient K19b und K23b.
+- L12 (Runde 4): Attribution Graphs sind für Tool-Agenten praktisch nur mit gpt-oss-20b möglich (CLT in circuit-tracer 0.5.0) und für lange Kontexte unerprobt. Als optionales Extra planen, nicht als Kern.
 
 ## Ideen-Backlog
+Runde 5:
+- K30 | 3 | Hilft oder schadet eine Begründung an der Regel ("Why:"-Zeile, genannte Konsequenz) der Befolgung in Coding-Agenten? Überträgt das "enforcement information paradox" (2608.12323) auf CLAUDE.md-Regeln | M | mittel | Runde 3 (A3)
+- K32 | 4x2 | Wo in einer Agenten-Trajektorie fällt die Entscheidung über Erfolg oder Fehlschlag? Forking-Punkte per Resampling auf offenen Modellen | M | mittel | L11
 Runde 4:
 - K23 | 2x3 | Wo scheitert das Routing von Regelwissen zur Handlung? Activation Patching / Attribution auf CAPE-Bench-Entscheidungszügen (Gemma oder gpt-oss): überträgt 2608.12321 von pragmatischem Schließen auf Tool-Agenten | L | hoch (wegen L9, L8) | Runde 3; ersetzt K04
 - K24 | 5x2 | Was bleibt dem Monitor, wenn Reasoning zusammengefasst oder verborgen ist? Auf CAPE-Bench: Text-Monitor auf roher CoT, auf Zusammenfassung, nur auf Aktionen, gegen Probe. Gewinnt die Probe ihren Vorteil zurück, sobald die CoT wie in Produktions-APIs fehlt? | M | hoch (wegen L8, L4) | Zusammenführung K13b+K16+K19b
