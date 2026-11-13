@@ -4,10 +4,11 @@ Auftrag: Linear TIM-156, Abschnitt "Forschungsauftrag". Skala fest: Score = Lüc
 Fortsetzen: Auftrag lesen, dann diese Datei, dann die letzten Zeilen von `log.tsv`.
 
 ## Stand (wird überschrieben)
-- Start der Recherche: 2026-11-13 18:50 UTC. Budget 2–4 h, also weiche Frist 22:50 UTC.
-- Runde: 5 läuft (Kurzprüfung K30, K32; parallel Zweitbewerter). Runde 4 abgeschlossen.
-- Top-Kandidaten nach Runde 4: K19b 60, K23b 48, K24 45 (K13b 45 geht in K24 auf), dann K01b 36, K08b 32.
-- Nächster Schritt: Runde 5 auswerten (Stabilität Top 3), Rauschgrenze aus Zweitbewertung, Prüfer, Bericht.
+- Recherche abgeschlossen am 2026-11-13 um etwa 20:30 UTC (Start 18:50 UTC). 5 Runden, Zweitbewertung, Prüfer. Bericht: `report.md` (status done).
+- Endstand nach Prüfer: K24 36, K23b 27, K19b 24. Dahinter K08b (Zweit 24), K01b (Zweit 18). Rauschgrenze 13 im Mittel, 24 maximal.
+- Empfehlung: K24 als Kern (mit Probe-Arm), K23b als Alternative bei Vorrang der Thesis-Passung. Entscheidung liegt bei Tim.
+- Offen bei Tim: Wahl des Kerns, VRAM der Uni-GPU, Ablageort für Projektfakten.
+- Nächster Schritt: Tims Rückmeldung abwarten. Bei Fortsetzung: erster 2-Wochen-Schritt aus dem Bericht als eigenes Issue.
 
 ## Lehren (nur anhängen)
 - L1 (K01, K02): Reines Verhaltens-Messen von Regelbefolgung bei Coding-Agenten ist 2026 dicht besetzt, etwa eine neue Arbeit pro Monat (Gamage, McMillan, SKILL-USE, SkillClash, Sun et al.). Die Kurzprüfung mit einer Suche hat das nicht gesehen: "nichts Direktes gefunden" in der Kurzprüfung ist kein Beleg für eine Lücke. Ähnliche Ideen (reine Messung auf Achse 3) niedriger einstufen.
@@ -24,6 +25,8 @@ Fortsetzen: Auftrag lesen, dann diese Datei, dann die letzten Zeilen von `log.ts
 - Korrektur: K18 steht im Log mit Nachfrage 2 (Score 24). Im Thread-Update nach Runde 2 stand fälschlich 36.
 - L11 (Runde 4): Bei Reasoning-Modellen ist die Entscheidung am Aktionstoken meist schon im CoT-Text gefallen. Mechanistische Analyse muss am Forking-Token in der CoT ansetzen (Resampling ab gleichem Präfix). Dieselbe Resampling-Infrastruktur dient K19b und K23b.
 - L12 (Runde 4): Attribution Graphs sind für Tool-Agenten praktisch nur mit gpt-oss-20b möglich (CLT in circuit-tracer 0.5.0) und für lange Kontexte unerprobt. Als optionales Extra planen, nicht als Kern.
+
+- L13 (Prüfer): Auch fünf Runden mit Tiefenprüfung haben Vorarbeiten übersehen (sechs weitere Arbeiten zu K19b und K23b). Der Prüfer sucht mit eigenen Begriffen aus dem Kern der Idee. Scores ohne unabhängige Gegenprüfung sind Obergrenzen. Bei künftigen Suchen den Prüfer nicht erst am Ende, sondern auf jeden neuen Spitzenkandidaten ansetzen.
 
 ## Ideen-Backlog
 Runde 5:
